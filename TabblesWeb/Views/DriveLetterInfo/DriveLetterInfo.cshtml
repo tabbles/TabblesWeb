@@ -1,0 +1,115 @@
+﻿@model DriveLetterInfoModel
+
+@{
+    ViewBag.Title = "DriveLetterInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Model.id == null)
+{
+    <h2>Create drive letter info</h2>
+}
+else
+{
+    <h2>Edit drive letter info</h2>
+}
+
+
+@if (TempData["messaggio"] != null)
+{
+    <div class="messaggio @Model.strClassMessaggioSuccesso(TempData["isMessaggioDiSuccesso"])">@TempData["messaggio"]</div>
+}
+
+
+<form method="post" action="@Url.Action("CreateOrEdit", "DriveLetterInfo", new { id = Model.id })">
+
+
+    <input type="hidden" value="@Model.id" name="id" />
+
+
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label>Drive letter</label>
+                <input autocomplete="off" type="text" class="form-control" placeholder="Drive letter" name="driveLetter" value="@Model.letter" />
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label>Ios</label>
+                <input autocomplete="off" type="text" class="form-control" placeholder="Ios" name="convertIos" value="@Model.convertIos" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label>Android</label>
+                <input autocomplete="off" type="text" class="form-control" placeholder="Android" name="convertAndroid" value="@Model.convertAndroid" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label>Mac</label>
+                <input autocomplete="off" type="text" class="form-control" placeholder="Android" name="convertMac" value="@Model.convertMac" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label>Linux</label>
+                <input autocomplete="off" type="text" class="form-control" placeholder="Linux" name="convertLinux" value="@Model.convertLinux" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+
+        <div class="col">
+            <div class="form-group">
+                <div class="chkValidoEditSingolo">
+                    <input type="checkbox" id="allowDownload" name="allowDownload" @Model.strCheckedIfAllowDownload() /><label for="allowDownload">Allow download</label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col"></div>
+        <div class="col-auto">
+
+            <div class="pulsanti_outer">
+                <a href="@Url.Action("Index", "ControlPanel")" class="btn btn-secondary form-control pulsante_azione_o_indietro">Back</a>
+
+                <button type="submit" class="btn btn-primary form-control pulsante_azione_o_indietro">@Model.strCreaOModifica()</button>
+
+            </div>
+        </div>
+    </div>
+</form>
+

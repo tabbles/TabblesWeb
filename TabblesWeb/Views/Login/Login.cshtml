@@ -1,0 +1,55 @@
+﻿@model LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br>
+<h2 style="text-align:center;">Login - Tabbles Web</h2>
+
+
+@if (TempData["messaggio"] != null)
+{
+    <div class="messaggio @Model.strClassMessaggioSuccesso(TempData["isMessaggioDiSuccesso"])">@TempData["messaggio"]</div>
+}
+
+
+<form action="@Url.Action("DoLogin", "Login")" method="post">
+
+    <div class="row">
+
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <br><br>
+                <label for="nome">User Name</label>
+                <input type="text" id="nome" class="form-control" placeholder="Nome" name="nome" value="@Model.prefill.nomeUtente" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label for="nome">Password</label>
+                <input type="password" id="pwd" class="form-control" placeholder="Password" name="pwd" value="@Model.prefill.pwd" />
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-2">
+            <input type="submit" value="Login" class="btn btn-primary form-control" />
+        </div>
+
+    </div>
+
+</form>
+
+

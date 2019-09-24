@@ -1,0 +1,99 @@
+﻿@model HomeModel
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/home.js"></script>
+<h2>Tabbles Web (ver 0.1.2)</h2>
+
+@*<div class="row">
+        <div class="col"></div>
+        <div class="col-auto">
+            <label>
+                <input type="checkbox" id="chkTestCombine" />
+                <span>Test combine</span>
+            </label>
+        </div>
+
+    </div>*@
+
+<input type="hidden" id="hidUname" value="@Model.nomeUtente" />
+<input type="hidden" id="hidPwd" value="@Model.pwd" />
+
+
+@*per ora non ho il messaggio nella home perché manca un pulsante per chiuderlo.*@
+
+@*@if (TempData["messaggio"] != null)
+{
+    <div class="messaggio @Model.strClassMessaggioSuccesso(TempData["isMessaggioDiSuccesso"])">@TempData["messaggio"]</div>
+}*@
+
+
+<div class="filePanelOuter">
+    <div class="filePanelAddressBar">
+        <div class="btn-group templateAtbTabble">
+
+            <a href="#" class="btn btn-secondary btnTagName">tag name bla</a>
+
+            <a href="#" class="btn btn-secondary btnTagClose"> <span class="fas fa-times"></span></a>
+        </div>
+
+        <div class="templatePlusAtb fas fa-plus"></div>
+
+        <div class="btn-group templateAtbTabble">
+
+            <a href="#" class="btn btn-secondary">tag name bla</a>
+
+            <a href="#" class="btn btn-secondary"> <span class="fas fa-times"></span></a>
+        </div>
+    </div>
+    <div class="filePanelSidebarAndMainBodyOuter">
+        <div class="sidePanel">
+            <div class="repSidePanel">
+
+
+                <div class="sidePanelDivJstree">
+                    <ul class="ulOuterSidePanel">
+
+                        @*<li data-jstree='{"icon":"fas fa-circle"}'>ciao</li>*@
+                    </ul>
+                </div>
+
+                <div class="templateTabbleSidebar" style="display:none">
+                    <div class="tabblesCircleAndText">
+                        <div class="tabbleCircleOuter">
+                            <i class="fas fa-circle icona"></i>
+                        </div>
+                        <div class="tabbleText">
+                            testo testo testo lungo lungo
+                        </div>
+                    </div>
+
+                    @*<div class="iconaPlusOuter">
+                            <i class="fas fa-plus iconaPlus"></i>
+                        </div>*@
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div class="mainBody">
+
+            <div class="repFiles">
+                <div class="templateFile" style="display:none">
+                    <span class="fileName">nome file</span>
+                    @*<span class="filePath">path file </span>*@
+
+                    <div class="btnContainer">
+                        <input type="text" class="txtFullPathTranslatedForDevice" />
+                        <a href="#" class="btn btn-secondary btnCopyToClip">Copy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,95 @@
+﻿
+@model  ControlPanelModel
+
+@{
+    ViewBag.Title = "Control Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/controlPanel.js"></script>
+<h2>Control Panel</h2>
+
+<div class="row">
+
+    <div class="col">
+        @if (TempData["messaggio"] != null)
+        {
+            <div class="messaggio @Model.strClassMessaggioSuccesso(TempData["isMessaggioDiSuccesso"])">@TempData["messaggio"]</div>
+        }
+
+    </div>
+</div>
+
+<form action="@Url.Action("Save", "ControlPanel")" method="post">
+    <div class="row">
+
+        <div class="col">
+            <div class="titleControlPanel1">Machine name to impersonate</div>
+            <input type="text" value="@Model.machineNameToImpersonate" placeholder="Machine name" name="machineNameToImpersonate" />
+
+            <input type="submit" class="btn btn-primary" value="Save changes" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+
+            <div class="titleControlPanel1">Drive letter infos</div>
+
+
+            <a href="@Url.Action("Index", "DriveLetterInfo")" class="btn btn-primary btnCreateNewDli">Create new</a>
+
+            <div class="driveLetterInfoList">
+                @foreach (var x in Model.driveLetterInfos.Select((di, i) => new { di, i }))
+                {
+                    <div class="driveLetterInfo">
+
+                        <div class="dliBlock">
+                            <span class="dliTitle">Letter</span>
+                            <span class="dliContent">@x.di.letter</span>
+                        </div>
+
+                        <div class="dliBlock">
+
+                            <span class="dliTitle">Ios</span>
+                            <span class="dliContent">@x.di.convertIos</span>
+                        </div>
+
+                        <div class="dliBlock">
+                            <span class="dliTitle">Android</span>
+                            <span class="dliContent">@x.di.convertAndroid</span>
+                        </div>
+
+                        <div class="dliBlock">
+                            <span class="dliTitle">Allow download</span>
+                            <span class="dliContent">@x.di.allowDownload</span>
+                        </div>
+
+                        <div class="dliBlock">
+                            <span class="dliTitle">Linux</span>
+                            <span class="dliContent">@x.di.convertLinux</span>
+                        </div>
+
+                        <div class="dliBlock ">
+                            <span class="dliTitle">Actions</span>
+                        </div>
+                        <div class="dliBlock dliBlockActions">
+                            <a href="@Url.Action("Index", "DriveLetterInfo", new {idDli = x.di.id })" class="btn btn-outline-secondary btnEdit">Edit</a>
+                            <a href="@Url.Action("DeleteDriveLetterInfo", "ControlPanel", new { idDli = x.di.id})" class="btn btn-outline-secondary btnDelete deleteDriveLetterInfo">Delete</a>
+                        </div>
+
+
+
+                        @if (x.i < Model.driveLetterInfos.Length - 1)
+                        {
+                            <hr />
+                            <div class="controlpanelsep"></div>
+                        }
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+
+</form>
+
