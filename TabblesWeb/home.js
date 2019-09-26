@@ -42,7 +42,12 @@ function rebuildAtb() {
 
         let te = gTemplateAtbTabble.clone();
         //debugger;
-        te.find(".btnTagName").text(curTa.tagName);
+        te.find(".spanTagName").text(curTa.tagName);
+
+
+        te.find(".fa-circle.icona").css("color", curTa.colorStr);
+
+
 
 
         te.find(".btnTagClose").click(async e => {
@@ -443,6 +448,12 @@ async function initAsync() {
             var tab = JSON.parse(strTabble);
             console.log("tabble cliccato = ", tab);
 
+
+
+            // estraggo il colore
+            let colorStrRgb = el.find(".fa-circle.icona").css("color");
+            //debugger;
+
             // ora devo chiamare web api: computeSuggestedTabblesAndCtsOfOpenTabbles
 
 
@@ -454,16 +465,19 @@ async function initAsync() {
 
                 if ( // non  è già aperto
                     !gOpenTabbles.some(x => x.tagIdOwner === tab.pgIdOwner && x.tagName === tab.pgName)) {
+                    //debugger;
                     gOpenTabbles.push({
                         tagIdOwner: tab.pgIdOwner,
-                        tagName: tab.pgName
+                        tagName: tab.pgName,
+                        colorStr : colorStrRgb
                     });
                 }
             }
             else {
                 gOpenTabbles = [{
                     tagIdOwner: tab.pgIdOwner,
-                    tagName: tab.pgName
+                    tagName: tab.pgName,
+                    colorStr: colorStrRgb
                 }];
             }
 

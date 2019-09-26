@@ -248,6 +248,12 @@ h2 {
 }
 
 
-.templateFile.nodownload :hover{
-     cursor: default !important;
+.templateFile.nodownload :hover {
+    cursor: default !important;
+}
+
+.tabbleCircleOuterAtb {
+    display: inline-block;
+    margin-right: 7px;
+    margin-top: 0px;
 }
