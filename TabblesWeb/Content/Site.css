@@ -216,8 +216,8 @@ li.nav-item.expand {
 }
 
 .filePanelAddressBar {
-    margin-bottom: 31px;
-    margin-top: 20px;
+    /* margin-bottom: 31px; */
+    /* margin-top: 20px; */
 }
 
 
@@ -256,4 +256,20 @@ h2 {
     display: inline-block;
     margin-right: 7px;
     margin-top: 0px;
+}
+
+
+.filePanelAddressBarAndSearch {
+    display: flex;
+}
+
+.filePanelAddressBar {
+    flex: 1;
+}
+
+.filePanelAddressBarAndSearch {
+    margin-bottom: 25px;
+    margin-top: 14px;
+    background: #e0e0e0;
+    padding: 10px;
 }
