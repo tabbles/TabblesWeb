@@ -81,8 +81,8 @@ async function rebuildFilePanel() {
         
         lnegtags: [],
         negExts: [],
-        patterns: [],
-        patternsNeg: [],
+        txtSearch: $("#txtSearch").val(),
+        
 
          workspaceTagName: gUserData.wsTagName,
         workspaceTagIdOwner: gUserData.uid /*gUserData.wsTagId sbagliato! qui devo passare l'id owner, non l'id tag*/
@@ -294,6 +294,47 @@ async function initAsync() {
     pwd = $("#hidPwd").val();
 
 
+
+    $(document).on('keypress', function (e) {
+        if (e.which === 13) {
+            //debugger;
+        rebuildAtb();
+
+
+        rebuildFilePanel();
+
+
+        }
+    });
+
+    //$("#txtSearch").bind('keypress.enter', () => {
+
+    //    //console.log("enter");
+    //    debugger;
+    //    rebuildAtb();
+
+
+    //    rebuildFilePanel();
+
+
+    //});
+
+
+
+
+    //$(document).bind('keydown.ctrl_f', () => {
+
+    //    $("#txtSearch").focus();
+    //    //rebuildAtb();
+
+
+    //    //rebuildFilePanel();
+
+
+    //});
+
+
+
     console.log(`jquery ok. prefisso web api = ${prefissoWebApi}`);
 
     gTemplFile = $(".templateFile").first().css('display', 'flex').clone();
@@ -457,7 +498,7 @@ async function initAsync() {
             // ora devo chiamare web api: computeSuggestedTabblesAndCtsOfOpenTabbles
 
 
-            // per ora faccio combine sempre. TODO farlo solo se è combinabile
+            
             if (gSuggested.some(su => su.pgName === tab.pgName && su.pgIdOwner === tab.pgIdOwner) // se è combinabile
 
             )

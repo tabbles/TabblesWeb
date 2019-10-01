@@ -273,3 +273,9 @@ h2 {
     background: #e0e0e0;
     padding: 10px;
 }
+
+
+    .filePanelAddressBarAndSearch input {
+        margin-bottom: 9px;
+        margin-top: 3px;
+    }

@@ -164,7 +164,6 @@
     <Compile Include="HomeModel.cs" />
     <Compile Include="initTabbleElementData.cs" />
     <Compile Include="InputComputeSuggestedClient.cs" />
-    <Compile Include="InputComputeSuggestedTabblesAndCtsOfOpenTabbles.cs" />
     <Compile Include="InputDownloadFile.cs" />
     <Compile Include="Logic.cs" />
     <Compile Include="LogicalCt.cs" />
@@ -232,6 +231,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="libman.json" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
