@@ -297,13 +297,15 @@ async function initAsync() {
 
     $(document).on('keypress', function (e) {
         if (e.which === 13) {
-            //debugger;
+
+            if ($("#txtSearch").is(":focus")){
+        //debugger;
         rebuildAtb();
 
 
         rebuildFilePanel();
 
-
+    }
         }
     });
 
