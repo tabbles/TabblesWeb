@@ -275,7 +275,13 @@ h2 {
 }
 
 
-    .filePanelAddressBarAndSearch input {
+/*.filePanelAddressBarAndSearch input {
         margin-bottom: 9px;
         margin-top: 3px;
-    }
+    }*/
+
+
+#bgSearch {
+    margin-bottom: 8px !important;
+    margin-top: 3px;
+}

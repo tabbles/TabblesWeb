@@ -295,6 +295,15 @@ async function initAsync() {
 
 
 
+    $("#btnClearSearch").click(() => {
+        $("#txtSearch").val("");
+        rebuildAtb();
+
+
+        rebuildFilePanel();
+
+    });
+
     $(document).on('keypress', function (e) {
         if (e.which === 13) {
 
