@@ -117,7 +117,7 @@
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="TabblesWebLogic">
-      <HintPath>..\..\TabblesWebLogic\bin\Debug\TabblesWebLogic.dll</HintPath>
+      <HintPath>TabblesLogic\TabblesWebLogic.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
