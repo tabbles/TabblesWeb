@@ -2,9 +2,12 @@
 var pwd ;
 var gUserData;
 
+
+
+
 var gOpenTabbles = [];
 var gSuggested = [];
-
+var gIsTaggedIsOpen = false;
 
 var gTemplFile;
 var gTemplateAtbTabble;
