@@ -2,9 +2,12 @@
 var pwd ;
 var gUserData;
 
+
+
+
 var gOpenTabbles = [];
 var gSuggested = [];
-
+var gIsTaggedIsOpen = false;
 
 var gTemplFile;
 var gTemplateAtbTabble;
@@ -37,6 +40,33 @@ function rebuildAtb() {
     $(".templatePlusAtb").remove();
     $(".templateAtbTabble").remove();
 
+    if (gIsTaggedIsOpen) {
+        let te = gTemplateAtbTabble.clone();
+        //debugger;
+        te.find(".spanTagName").text("Is Tagged");
+
+
+        te.find(".fa-square.icona").css("color", "#444444");
+
+
+
+
+        te.find(".btnTagClose").click(async e => {
+            gIsTaggedIsOpen = false;
+            rebuildAtb();
+
+            rebuildFilePanel();
+        });
+
+        $(".filePanelAddressBar").append(te);
+
+
+        //if (i < gOpenTabbles.length - 1) {
+        //    let teplus = gTemplateAtbPlus.clone();
+        //    $(".filePanelAddressBar").append(teplus);
+        //}
+    }
+
     for (i = 0; i < gOpenTabbles.length; i++) {
         var curTa = gOpenTabbles[i];
 
@@ -51,7 +81,10 @@ function rebuildAtb() {
 
 
         te.find(".btnTagClose").click(async e => {
-            gOpenTabbles = gOpenTabbles.filter (x => x !== curTa);
+            gOpenTabbles = gOpenTabbles.filter(x => x !== curTa);
+
+            forseAggiungiIsTagged();
+
             rebuildAtb();
 
             rebuildFilePanel();
@@ -69,8 +102,27 @@ function rebuildAtb() {
 }
 
 
+function forseAggiungiIsTagged() {
+
+
+    let searchFilter = $("#txtSearch").val();
+    // if is tagged must be open automatically, do it
+
+    if (gOpenTabbles.length === 0 && searchFilter !== "") {
+        gIsTaggedIsOpen = true;
+
+        rebuildAtb();
+    }
+
+
+}
+
 // legge gOpenTabbles
 async function rebuildFilePanel() {
+
+
+    let searchFilter = $("#txtSearch").val();
+
 
     let inp = {
         uname: uname,
@@ -81,12 +133,12 @@ async function rebuildFilePanel() {
         
         lnegtags: [],
         negExts: [],
-        txtSearch: $("#txtSearch").val(),
+        txtSearch: searchFilter,
         
 
          workspaceTagName: gUserData.wsTagName,
         workspaceTagIdOwner: gUserData.uid /*gUserData.wsTagId sbagliato! qui devo passare l'id owner, non l'id tag*/
-
+        , isTagged: gIsTaggedIsOpen
 
     };
     let url = `${prefissoWebApi}/api/computeSuggestedTabblesAndCtsOfOpenTabbles`;
@@ -309,6 +361,9 @@ async function initAsync() {
 
             if ($("#txtSearch").is(":focus")){
         //debugger;
+
+                forseAggiungiIsTagged();
+
         rebuildAtb();
 
 
