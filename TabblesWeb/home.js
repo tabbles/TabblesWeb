@@ -161,6 +161,7 @@ async function rebuildFilePanel() {
 
     files.forEach(fi => {
 
+        if (fi.fiPath !== null) { // could be a url or email
         let lettera = fi.fiPath.substring(0, 1).toLowerCase();
         let rigaConQuellaLettera = _(gTabblesWebRows).find(ro => ro.letter.toLowerCase() === lettera);
 
@@ -182,7 +183,7 @@ async function rebuildFilePanel() {
             te.addClass("nodownload");
         }
         let pathOrig = fi.fiPath;
-        if (fi.fiPath !== null) {
+        
             let fname = getFilenameOfPath(fi.fiPath);
 
 
@@ -293,7 +294,12 @@ async function rebuildFilePanel() {
             $(".repFiles").append(te);
 
         }
-    });
+
+
+
+    }
+
+    );
             //debugger;
 
 
