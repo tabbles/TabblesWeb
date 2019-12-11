@@ -153,7 +153,7 @@ async function rebuildFilePanel() {
     console.log("suggested", gSuggested);
 
     
-
+    debugger;
 
     $(".repFiles .templateFile").remove();
 
@@ -226,7 +226,7 @@ async function rebuildFilePanel() {
             
 
             //console.log("dopo di replace", fi.fiPath);
-
+            
             let path = fi.fiPath.replace(fname, '');
             te.find(".filePath").text(path);
             te.find(".fileName").text(fname);
