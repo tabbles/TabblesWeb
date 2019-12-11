@@ -25,9 +25,9 @@
 @*per ora non ho il messaggio nella home perché manca un pulsante per chiuderlo.*@
 
 @*@if (TempData["messaggio"] != null)
-{
-    <div class="messaggio @Model.strClassMessaggioSuccesso(TempData["isMessaggioDiSuccesso"])">@TempData["messaggio"]</div>
-}*@
+    {
+        <div class="messaggio @Model.strClassMessaggioSuccesso(TempData["isMessaggioDiSuccesso"])">@TempData["messaggio"]</div>
+    }*@
 
 
 <div class="filePanelOuter">
@@ -65,9 +65,9 @@
                 <input type="text" id="txtSearch" placeholder="Search..." class="txtSearch" />
             </div>
             @*<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">*@
-            
-                <button class="input-group-btn" id="btnClearSearch"><span class="fa fa-times"></span></button>
-            
+
+            <button class="input-group-btn" id="btnClearSearch"><span class="fa fa-times"></span></button>
+
         </div>
 
 
@@ -114,6 +114,20 @@
                     <div class="btnContainer">
                         <input type="text" class="txtFullPathTranslatedForDevice" />
                         <a href="#" class="btn btn-secondary btnCopyToClip">Copy</a>
+                    </div>
+
+
+                    <div class="commentOuter">
+                        <div class="comment2">
+                            @*<div class="dataComment">10/10/2012</div>*@  
+                            <div class="autoreandCommento">
+                                <div class="autoreCommento">Autore</div>
+                                <div class="testoCommento">Commento lungo lungo dkjfdkj fdkj fdkj fdkj dfcommento lungo lungo dkjfdkj fdkj fdkj fdkj dfcommento lungo lungo dkjfdkj fdkj fdkj fdkj dfcommento lungo lungo dkjfdkj fdkj fdkj fdkj dfcommento lungo lungo dkjfdkj fdkj fdkj fdkj dfcommento lungo lungo dkjfdkj fdkj fdkj fdkj dfcommento lungo lungo dkjfdkj fdkj fdkj fdkj dfcommento lungo lungo dkjfdkj fdkj fdkj fdkj dfcommento lungo lungo dkjfdkj fdkj fdkj fdkj dfcommento lungo lungo dkjfdkj fdkj fdkj fdkj dfcommento lungo lungo dkjfdkj fdkj fdkj fdkj df</div>
+                            </div>
+                            <button class="btn btn-outline-primary"><i class="fas fa-angle-down"></i></button>
+                        </div>
+
+
                     </div>
                 </div>
             </div>

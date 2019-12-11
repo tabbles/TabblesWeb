@@ -162,27 +162,27 @@ async function rebuildFilePanel() {
     files.forEach(fi => {
 
         if (fi.fiPath !== null) { // could be a url or email
-        let lettera = fi.fiPath.substring(0, 1).toLowerCase();
-        let rigaConQuellaLettera = _(gTabblesWebRows).find(ro => ro.letter.toLowerCase() === lettera);
+            let lettera = fi.fiPath.substring(0, 1).toLowerCase();
+            let rigaConQuellaLettera = _(gTabblesWebRows).find(ro => ro.letter.toLowerCase() === lettera);
 
     
 
-        let te = gTemplFile.clone();
+            let te = gTemplFile.clone();
 
 
-        let allowDownload = false;
-        if (typeof rigaConQuellaLettera !== 'undefined') {
-            //debugger;
-            allowDownload = rigaConQuellaLettera.allowDowload;
+            let allowDownload = false;
+            if (typeof rigaConQuellaLettera !== 'undefined') {
+                //debugger;
+                allowDownload = rigaConQuellaLettera.allowDowload;
 
             
-        }
+            }
 
 
-        if (!allowDownload) {
-            te.addClass("nodownload");
-        }
-        let pathOrig = fi.fiPath;
+            if (!allowDownload) {
+                te.addClass("nodownload");
+            }
+            let pathOrig = fi.fiPath;
         
             let fname = getFilenameOfPath(fi.fiPath);
 

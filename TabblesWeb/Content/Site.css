@@ -285,3 +285,36 @@ h2 {
     margin-bottom: 8px !important;
     margin-top: 3px;
 }
+
+
+.dataComment {
+    display: inline-block;
+    height: 27px;
+    margin-top: 6px;
+}
+
+.autoreCommento {
+    display: inline;
+    /* margin-left: 10px; */
+    height: 27px;
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+.testoCommento {
+    display: inline;
+    margin-left: 10px;
+    /* max-height: 27px; */
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    margin-top: 6px;
+}
+
+.comment2 {
+    display: flex;
+}
+
+
+.comment2 {
+    margin-top: 8px;
+}
