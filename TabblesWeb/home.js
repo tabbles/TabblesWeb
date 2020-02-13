@@ -152,7 +152,7 @@ async function rebuildFilePanel() {
     gSuggested = ret.ret.obj.stcAllSuggestedNodes2;
     console.log("suggested", gSuggested);
 
-    
+    let xxx = ret.ret.obj;
     debugger;
 
     $(".repFiles .templateFile").remove();
