@@ -318,7 +318,8 @@ namespace TabblesWeb.Controllers
 
 
 
-                                     
+                                     // la tabella numero 4 (cioè la quinta) contiene , per ciascun file, l'ultimo commento troncato. devo tradurla in dizionario, se no in js non riesci ad accedere. ma è un casino in .net dato che è un datatable.
+
 
 
 

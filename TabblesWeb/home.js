@@ -152,8 +152,12 @@ async function rebuildFilePanel() {
     gSuggested = ret.ret.obj.stcAllSuggestedNodes2;
     console.log("suggested", gSuggested);
 
-    let xxx = ret.ret.obj;
-    debugger;
+        let xxx = ret.ret.obj;
+        let datatables = ret.ret.dataTables;
+        // i commenti sono la quarta tabella [4],ma devo indicizzarli
+        let tabComments = datatables[4];
+        let dicComments = _.indexBy(tabComments, x => x.idTaggable);
+    //debugger;
 
     $(".repFiles .templateFile").remove();
 
@@ -229,7 +233,27 @@ async function rebuildFilePanel() {
             
             let path = fi.fiPath.replace(fname, '');
             te.find(".filePath").text(path);
-            te.find(".fileName").text(fname);
+                te.find(".fileName").text(fname);
+
+
+                // commento sotto al file (mostra ultimo commento, troncato)
+                
+                if (dicComments.hasOwnProperty(fi.idCt))
+                {
+                        let commento = dicComments[fi.idCt];
+                        let testoCommentoTrunc = commento.commentTextTrunc;
+                        
+                        //debugger;
+                        let divcommento = te.find('.testoCommento');
+                        divcommento.text(testoCommentoTrunc);
+                        te.find('.autoreCommento').text(commento.userName);
+
+                        te.find('.commentOuter').show();
+                }
+                else
+                {
+                        te.find('.commentOuter').hide();
+                }
 
             te.find(".txtFullPathTranslatedForDevice").val(fi.fiPath);
 

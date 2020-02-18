@@ -80,7 +80,7 @@ namespace TabblesWeb.Controllers
                                 var db = new tabblesEntities();
                                 var isauth = TabblesWebLogic.Logic.auth(db, Session, out int? idUtente, out bool? isAdmin, out int? idOrg);
 
-                                isAdmin = false;
+                                //isAdmin = false;
                                 if (!isauth || isAdmin != true) // oppure non è admin
                                 {
                                         giveMessageYouNeedToBeAdmin();
