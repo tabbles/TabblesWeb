@@ -276,45 +276,55 @@ async function rebuildFilePanel() {
                 document.execCommand("copy");
             });
 
-            if (allowDownload) {
-                te.find('.btnDownload').click(async function (e) {
+                if (allowDownload)
+                {
+                        te.find('.btnDownload').click(async function (e)
+                        {
 
 
-                    // scarica
+                                // scarica
 
-                    if (te.hasClass("disabled")) {
-                        return;
-                    }
+                                if (te.hasClass("disabled"))
+                                {
+                                        return;
+                                }
 
-                    console.log("cliccato file. scaricando.");
+                                console.log("cliccato file. scaricando.");
 
-                    te.addClass("disabled");
-                    let inp = {
-                        uname: uname,
-                        pwd: pwd,
-                        path: pathOrig
-                    };
-                    let url = `${prefissoWebApi}/api/downloadFile`;
-                    let ret = await doPost(url, inp);
+                                te.addClass("disabled");
+                                let inp = {
+                                        uname: uname,
+                                        pwd: pwd,
+                                        path: pathOrig
+                                };
+                                let url = `${prefissoWebApi}/api/downloadFile`;
+                                let ret = await doPost(url, inp);
 
-                    if (ret.error === "file-not-found") {
-                        alert("file not found");
-                        te.removeClass("disabled");
-                    }
-                    else if (ret.error === "dir-not-found") {
-                        alert("dir not found");
-                        te.removeClass("disabled");
-                    }
-                    else {
-                        var byteArr = base64ToArrayBuffer(ret.ret);
-                        te.removeClass("disabled");
-                        saveByteArray(fname, byteArr);
+                                if (ret.error === "file-not-found")
+                                {
+                                        alert("file not found");
+                                        te.removeClass("disabled");
+                                }
+                                else if (ret.error === "dir-not-found")
+                                {
+                                        alert("dir not found");
+                                        te.removeClass("disabled");
+                                }
+                                else
+                                {
+                                        var byteArr = base64ToArrayBuffer(ret.ret);
+                                        te.removeClass("disabled");
+                                        saveByteArray(fname, byteArr);
 
-                    }
-                    te.removeClass("disabled");
-                    console.log("files result = ", ret);
-                });
-            }
+                                }
+                                te.removeClass("disabled");
+                                console.log("files result = ", ret);
+                        });
+                }
+                else
+                {
+                        te.find('.btnDownload').addClass("disabled");
+                }
             $(".repFiles").append(te);
 
         }
