@@ -47,7 +47,7 @@ span.filePath {
 
 
 .templateFile {
-    cursor: default;
+    /* cursor: default; */
 }
 
     .templateFile:hover {
@@ -119,7 +119,7 @@ span.filePath {
 
 
 .templateFile {
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
     .templateFile:hover {
