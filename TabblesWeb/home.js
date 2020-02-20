@@ -277,7 +277,7 @@ async function rebuildFilePanel() {
             });
 
             if (allowDownload) {
-                te.click(async function (e) {
+                te.find('.btnDownload').click(async function (e) {
 
 
                     // scarica
