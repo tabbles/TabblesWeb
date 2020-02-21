@@ -280,6 +280,8 @@ async function rebuildFilePanel()
                                         spanNome.text(tag.tagName);
 
                                         te.find('.tagContainerBelowFile').append(newteTag);
+
+                                        te.find('.icona').css('color', `rgb(${tag.textColorR},${tag.textColorG},${tag.textColorB})`);
                                 }
                         }
 

@@ -337,3 +337,10 @@ h2 {
     margin-right: 10px;
     margin-top: 6px;
 }
+
+
+.jstree-proton .jstree-clicked {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+}
