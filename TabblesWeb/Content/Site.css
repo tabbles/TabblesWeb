@@ -120,6 +120,8 @@ span.filePath {
 
 .templateFile {
     /* cursor: pointer; */
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 16px;
 }
 
     .templateFile:hover {
@@ -298,6 +300,7 @@ h2 {
     /* margin-left: 10px; */
     height: 27px;
     margin-top: 6px;
+    color: #8c8c8c;
     font-weight: bold;
 }
 
@@ -343,4 +346,9 @@ h2 {
     background: transparent !important;
     color: black !important;
     box-shadow: none !important;
+}
+
+
+.templateFile:last-child {
+    border-bottom: none;
 }
