@@ -192,7 +192,7 @@ async function rebuildFilePanel()
 
 
 
-                        let te = gTemplFile.clone();
+                        let newFileEl = gTemplFile.clone();
 
 
                         let allowDownload = false;
@@ -207,7 +207,7 @@ async function rebuildFilePanel()
 
                         if (!allowDownload)
                         {
-                                te.addClass("nodownload");
+                                newFileEl.addClass("nodownload");
                         }
                         let pathOrig = fi.fiPath;
 
@@ -259,29 +259,29 @@ async function rebuildFilePanel()
                         //console.log("dopo di replace", fi.fiPath);
 
                         let path = fi.fiPath.replace(fname, '');
-                        te.find(".filePath").text(path);
-                        te.find(".fileName").text(fname);
+                        newFileEl.find(".filePath").text(path);
+                        newFileEl.find(".fileName").text(fname);
 
 
 
 
                         // i tabble sotto al file
-                        te.find('.tagContainerBelowFile .templateTabbleBelowFile').remove();
+                        newFileEl.find('.tagContainerBelowFile .templateTabbleBelowFile').remove();
                         let idtagidctpair = dicTagsOfIdCt[fi.idCt];
                         for (let pair of idtagidctpair)
                         {
                                 if (pair.idTag !== null)
                                 {
                                         let tag = dicTabbleOfIdTag[pair.idTag];
-                                        let newteTag = gTemplateTabbleBelowFile.clone();
+                                        let newTagEl = gTemplateTabbleBelowFile.clone();
 
                                         
-                                        let spanNome = newteTag.find(".textTabbleBelowFile");
+                                        let spanNome = newTagEl.find(".textTabbleBelowFile");
                                         spanNome.text(tag.tagName);
 
-                                        te.find('.tagContainerBelowFile').append(newteTag);
+                                        newFileEl.find('.tagContainerBelowFile').append(newTagEl);
 
-                                        te.find('.icona').css('color', `rgb(${tag.textColorR},${tag.textColorG},${tag.textColorB})`);
+                                        newTagEl.find('.icona').css('color', `rgb(${tag.textColorR},${tag.textColorG},${tag.textColorB})`);
                                 }
                         }
 
@@ -293,18 +293,18 @@ async function rebuildFilePanel()
                                 let testoCommentoTrunc = commento.commentTextTrunc;
 
                                 //debugger;
-                                let divcommento = te.find('.testoCommento');
+                                let divcommento = newFileEl.find('.testoCommento');
                                 divcommento.text(testoCommentoTrunc);
-                                te.find('.autoreCommento').text(commento.userName);
+                                newFileEl.find('.autoreCommento').text(commento.userName);
 
-                                te.find('.commentOuter').show();
+                                newFileEl.find('.commentOuter').show();
                         }
                         else
                         {
-                                te.find('.commentOuter').hide();
+                                newFileEl.find('.commentOuter').hide();
                         }
 
-                        te.find(".txtFullPathTranslatedForDevice").val(fi.fiPath);
+                        newFileEl.find(".txtFullPathTranslatedForDevice").val(fi.fiPath);
 
                         //te.find(".txtFullPathTranslatedForDevice").click(e => {
                         //    //e.preventDefault();
@@ -315,33 +315,33 @@ async function rebuildFilePanel()
                         //});
 
 
-                        te.find(".btnCopyToClip").click(e =>
+                        newFileEl.find(".btnCopyToClip").click(e =>
                         {
                                 e.preventDefault();
                                 e.stopPropagation();
                                 let copyText = "ciao";
 
 
-                                te.find(".txtFullPathTranslatedForDevice").select();
+                                newFileEl.find(".txtFullPathTranslatedForDevice").select();
                                 document.execCommand("copy");
                         });
 
                         if (allowDownload)
                         {
-                                te.find('.btnDownload').click(async function (e)
+                                newFileEl.find('.btnDownload').click(async function (e)
                                 {
 
 
                                         // scarica
 
-                                        if (te.hasClass("disabled"))
+                                        if (newFileEl.hasClass("disabled"))
                                         {
                                                 return;
                                         }
 
                                         console.log("cliccato file. scaricando.");
 
-                                        te.addClass("disabled");
+                                        newFileEl.addClass("disabled");
                                         let inp = {
                                                 uname: uname,
                                                 pwd: pwd,
@@ -353,29 +353,29 @@ async function rebuildFilePanel()
                                         if (ret.error === "file-not-found")
                                         {
                                                 alert("file not found");
-                                                te.removeClass("disabled");
+                                                newFileEl.removeClass("disabled");
                                         }
                                         else if (ret.error === "dir-not-found")
                                         {
                                                 alert("dir not found");
-                                                te.removeClass("disabled");
+                                                newFileEl.removeClass("disabled");
                                         }
                                         else
                                         {
                                                 var byteArr = base64ToArrayBuffer(ret.ret);
-                                                te.removeClass("disabled");
+                                                newFileEl.removeClass("disabled");
                                                 saveByteArray(fname, byteArr);
 
                                         }
-                                        te.removeClass("disabled");
+                                        newFileEl.removeClass("disabled");
                                         console.log("files result = ", ret);
                                 });
                         }
                         else
                         {
-                                te.find('.btnDownload').addClass("disabled");
+                                newFileEl.find('.btnDownload').addClass("disabled");
                         }
-                        $(".repFiles").append(te);
+                        $(".repFiles").append(newFileEl);
 
                 }
 

@@ -352,3 +352,8 @@ h2 {
 .templateFile:last-child {
     border-bottom: none;
 }
+
+
+.btn-group.templateAtbTabble {
+    margin-right: 7px;
+}
