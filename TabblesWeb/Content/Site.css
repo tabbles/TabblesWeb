@@ -329,7 +329,7 @@ h2 {
 
 
 .titleMain {
-    display: none; /*temp*/
+    
 }
 
 .tagContainerBelowFile {
@@ -356,4 +356,11 @@ h2 {
 
 .btn-group.templateAtbTabble {
     margin-right: 7px;
+}
+
+.sidePanelRight {
+    display: none;
+    width: 352px;
+    background: #eaeaea;
+    margin-left: 10px;
 }
