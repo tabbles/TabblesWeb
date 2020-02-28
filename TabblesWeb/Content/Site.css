@@ -145,6 +145,8 @@ input.txtFullPathTranslatedForDevice {
     padding-left: 8px;
     margin-right: 10px;
     cursor: pointer;
+    border-style: hidden;
+    background-color: aliceblue;
 }
 
 
@@ -272,7 +274,7 @@ h2 {
 .filePanelAddressBarAndSearch {
     margin-bottom: 25px;
     margin-top: 14px;
-    background: #e0e0e0;
+    background: aliceblue;
     padding: 10px;
 }
 
