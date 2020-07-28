@@ -29,6 +29,41 @@ namespace TabblesWeb.Controllers
                 }
 
 
+                [HttpGet]
+                [Route("api/getThumbnail")]
+                public IHttpActionResult getThumbnail(string filePath)
+                {
+                        try
+                        {
+
+                                var bytes = System.IO.File.ReadAllBytes(filePath);
+
+
+                                var base64 = System.Convert.ToBase64String(bytes);
+
+                                        return Ok(new Result
+                                        {
+                                                ret = base64
+                                                //,
+
+                                                //tabblesWebRows = tabblesWebRows,
+                                                //browser = browser
+                                        });
+
+                                
+
+                        }
+                        catch (Exception e)
+                        {
+
+
+                                return Ok(new Result { error = "generic-error", stringOfExc = Utils.stringOfException(e) });
+                        }
+
+                }
+
+
+
 
 
                 [HttpGet]

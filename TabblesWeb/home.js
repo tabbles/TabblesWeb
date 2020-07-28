@@ -182,7 +182,7 @@ async function rebuildFilePanel()
 
 
 
-        files.forEach(fi =>
+        for (let fi in files )
         {
 
                 if (fi.fiPath !== null)
@@ -383,7 +383,7 @@ async function rebuildFilePanel()
 
         }
 
-        );
+       
         //debugger;
 
 
