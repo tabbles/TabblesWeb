@@ -369,14 +369,20 @@ h2 {
 
 
 .thumbOuter {
-    background: red;
+    /* background: red; */
     width: 122px;
     height: 124px;
     flex-shrink: 0;
     margin-right: 10px;
+    border: 1px solid #d6d6d6;
 }
 
 
 .templateFileInner {
     flex: 1;
+}
+
+
+img.imgThumb {
+    width: 120px;
 }

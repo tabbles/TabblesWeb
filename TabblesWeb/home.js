@@ -263,6 +263,19 @@ async function rebuildFilePanel()
                         newFileEl.find(".fileName").text(fname);
 
 
+                        //if (!fi.fiIsDir)
+                        if (fi.fiPath.endsWith('.png') || fi.fiPath.endsWith('.jpg'))
+                        {
+                                let url = `${prefissoWebApi}/api/getThumbnail?filePath=${fi.fiPath}&uname=${uname}&pwd=${pwd}`;
+                                let ret = await doGet(url);
+                                debugger;
+
+                                let base = 'data:image/jpeg;base64, ' + ret.ret;
+                                newFileEl.find(".imgThumb").attr("src", base);
+
+                        }
+
+
 
 
                         // i tabble sotto al file
@@ -435,18 +448,10 @@ async function rebuildFilePanel()
 
 
         // i thumbnail
-        for (let fi of files)
-        {
-                //if (!fi.fiIsDir)
-        if (fi.fiPath.endsWith('.png'))
-                {
-                        let url = `${prefissoWebApi}/api/getThumbnail?filePath=${fi.fiPath}&uname=${uname}&pwd=${pwd}`;
-                        let ret = await doGet(url);
-
-                   
-                }
-
-        }
+        //for (let fi of files)
+        //{
+                
+        //}
 
 }
 
