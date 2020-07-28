@@ -31,7 +31,7 @@ namespace TabblesWeb.Controllers
 
                 [HttpGet]
                 [Route("api/getThumbnail")]
-                public IHttpActionResult getThumbnail(string filePath)
+                public IHttpActionResult getThumbnail(string filePath, string uname, string pwd)
                 {
                         try
                         {

@@ -182,7 +182,7 @@ async function rebuildFilePanel()
 
 
 
-        for (let fi in files )
+        for (let fi of files )
         {
 
                 if (fi.fiPath !== null)
@@ -432,6 +432,21 @@ async function rebuildFilePanel()
 
                 });
         }
+
+
+        // i thumbnail
+        for (let fi of files)
+        {
+                if (!fi.fiIsDir)
+                {
+                        let url = `${prefissoWebApi}/api/getThumbnail?filePath=${fi.fiPath}&uname=${uname}&pwd=${pwd}`;
+                        let ret = await doGet(url);
+
+                   
+                }
+
+        }
+
 }
 
 
