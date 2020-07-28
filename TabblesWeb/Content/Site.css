@@ -122,6 +122,7 @@ span.filePath {
     /* cursor: pointer; */
     border-bottom: 1px solid #eaeaea;
     padding-bottom: 16px;
+    flex-direction: row;
 }
 
     .templateFile:hover {
@@ -331,7 +332,6 @@ h2 {
 
 
 .titleMain {
-    
 }
 
 .tagContainerBelowFile {
@@ -365,4 +365,13 @@ h2 {
     width: 352px;
     background: #eaeaea;
     margin-left: 10px;
+}
+
+
+.thumbOuter {
+    background: red;
+    width: 122px;
+    height: 124px;
+    flex-shrink: 0;
+    margin-right: 10px;
 }

@@ -437,7 +437,8 @@ async function rebuildFilePanel()
         // i thumbnail
         for (let fi of files)
         {
-                if (!fi.fiIsDir)
+                //if (!fi.fiIsDir)
+        if (fi.fiPath.endsWith('.png'))
                 {
                         let url = `${prefissoWebApi}/api/getThumbnail?filePath=${fi.fiPath}&uname=${uname}&pwd=${pwd}`;
                         let ret = await doGet(url);
