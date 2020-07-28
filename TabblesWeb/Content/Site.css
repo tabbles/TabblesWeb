@@ -375,3 +375,8 @@ h2 {
     flex-shrink: 0;
     margin-right: 10px;
 }
+
+
+.templateFileInner {
+    flex: 1;
+}
